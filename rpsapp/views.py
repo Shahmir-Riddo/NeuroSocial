@@ -6,7 +6,7 @@ from .models import Profile, Post, LikePost, FollowersCount, Comment
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.db.models import Q
-from simple_search import search_filter
+
 # Create your views here.
 
 
