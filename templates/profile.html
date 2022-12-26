@@ -426,7 +426,7 @@ a{
                                 <form action="/follow/" method="POST">{% csrf_token %}
                                    
                                 <div class="follow">
-                                    {% if request.user.username != pro.username %}
+                                    {% if request.user.username == pro.username %}
                                     <input type="hidden" value="{{request.user.username}}" name="follow" id="follow"/>
                                     <input type="hidden" value="{{profile.username}}" name="user" id="user" />
                                   
