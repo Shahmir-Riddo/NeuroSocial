@@ -4,6 +4,8 @@
 Neurosocial is a simple photo and info sharing app made with django. With Neurosocial, users can post their own photos and share information. It offers a variety of features and tools to make sharing photos and info easy and fun. Users can ccustomize their settings. Neurosocial also allows users to search for posts and it has a follow and unfollow feature.
 
 Features :
+
+
 • Search for Friends: Easily search for friends and follow them, making it easy to stay connected.
 
 • Customizable Settings: Customize settings and preferences to tailor Neurosocial to each user’s needs.
