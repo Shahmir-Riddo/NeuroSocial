@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Upload A Post
+{% endblock title %}
+
+{% block body %}
+{% include 'nav.html' %}
+<style>
+
+</style>
+<div class='container'>
+    <h1 class="hdr">Upload A Post</h1>
+    <h5 class="hdr"></h5>
+<div class='box'>
+    <h1 class="hdr">Upload A Post</h1>
+<form method='POST' action='' enctype="multipart/form-data">{% csrf_token %}
+    <label>Caption</label>
+<textarea  class="textarea"  name='caption' id='caption' placeholder="Caption" rows="3"></textarea>
+
+<label class="form-label"  for="customFile">Image</label>
+<input class="form-control" form-control-sm type="file" name="image" id="image" accept="image/*">
+
+
+<input class="button" type="submit" value="Submit Post">
+</form>
+</div>
+</div>
+{% endblock body %}

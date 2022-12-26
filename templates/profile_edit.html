@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+{% include "nav.html" %}
+<div class='container'>
+    <div class='box'>
+    <form method='POST' action='' enctype="multipart/form-data">{% csrf_token %}
+        <h1>_________</h1>
+        <h1>Profile Settings</h1>
+        <label>Your Bio</label>
+    <textarea  class="textarea"  name='bio' id='bio' placeholder="Bio">{{profile.bio}}</textarea>
+   
+    <label class="form-label"  for="customFile">Your Display Picture</label>
+    <input class="form-control" form-control-sm type="file" id='avatar' name="avatar" accept="image/*">
+    <h1></h1>
+  
+    
+   
+    <label class="form-label"  for="customFile">Your Cover Picture</label>
+    <input class="form-control" form-control-sm type="file" id='avatar' name="cover" accept="image/*">
+    <h1></h1>
+    
+    <input class="button" type="submit" value="Submit">
+   </form>
+    </div>
+    </div>
+
+{% endblock body %}

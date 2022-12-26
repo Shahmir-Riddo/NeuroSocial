@@ -1,0 +1,11 @@
+
+{% for p in profile %}
+
+<div>
+    <p>{{p.email}}</p>
+    <p>
+    <a href="/profile/{{p.username}}" style="text-decoration:none" >@{{ p.username}}</a>
+</p>
+</div>
+
+{% endfor %}

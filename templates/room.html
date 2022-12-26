@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% block title %}
+Rooms
+{% endblock title %}
+{% block body %}
+{% include "nav.html" %}
+<style>
+    #chat3 .form-control {
+        border-color: transparent;
+        }
+        
+        #chat3 .form-control:focus {
+        border-color: transparent;
+        box-shadow: inset 0px 0px 0px 1px transparent;
+        }
+        
+        .badge-dot {
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        margin-left: 2.9rem;
+        margin-top: -.75rem;
+        }
+</style>
+
+
+<script>
+    $(document).ready(function(){
+    
+    setInterval(function(){
+        $.ajax({
+            type: 'GET',
+            url : "/getMessages/{{room}}/",
+            success: function(response){
+                console.log(response);
+                $("#display").empty();
+                for (var key in response.messages)
+                {
+                    var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
+                    $("#display").append(temp);
+                }
+            },
+            error: function(response){
+                alert('An error occured')
+            }
+        });
+    },1000);
+    })
+    </script>
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+      
+          <div class="row">
+      
+            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+      
+              <h5 class="font-weight-bold mb-3 text-center text-lg-start">Member</h5>
+      
+              <div class="card">
+                <div class="card-body">
+                    <form class="row g-3" method="POST" action="">{% csrf_token %}
+                        
+                        <div class="col-auto">
+                          <label for="inputPassword2" class="visually-hidden">Enter your room code</label>
+                          <input class="form-control" id="roomc" name="roomc" placeholder="Enter Your Room Code">
+                        </div>
+                        <div class="col-auto">
+                          <button type="submit" class="btn btn-primary mb-3">Create Room</button>
+                        </div>
+                      </form>
+                  <ul class="list-unstyled mb-0">
+                    <li class="p-2 border-bottom" style="background-color: #eee;">
+                      <a href="#!" class="d-flex justify-content-between">
+                        <div class="d-flex flex-row">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp" alt="avatar"
+                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
+                          <div class="pt-1">
+                            
+                            <p class="fw-bold mb-0">{{roomname}}</p>
+                           
+                          </div>
+                        </div>
+                       
+               
+                      </a>
+                    </li>
+                    <li class="p-2">
+                      <a href="#!" class="d-flex justify-content-between">
+                        <div class="d-flex flex-row">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
+                          <div class="pt-1">
+                            <p class="fw-bold mb-0">Brad Pitt</p>
+                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
+                          </div>
+                        </div>
+                        <div class="pt-1">
+                          <p class="small text-muted mb-1">5 mins ago</p>
+                          <span class="text-muted float-end"><i class="fas fa-check" aria-hidden="true"></i></span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+      
+                </div>
+              </div>
+      
+            </div>
+      
+            <div class="col-md-6 col-lg-7 col-xl-8">
+      
+              <ul class="list-unstyled">
+                <li class="d-flex justify-content-between mb-4">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                    class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+                  <div class="card">
+                    <div class="card-header d-flex justify-content-between p-3">
+                      <p class="fw-bold mb-0">Brad Pitt</p>
+                      <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
+                    </div>
+                    <div class="card-body">
+                      <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="d-flex justify-content-between mb-4">
+                  <div class="card w-100">
+                    <div class="card-header d-flex justify-content-between p-3">
+                      <p class="fw-bold mb-0">Lara Croft</p>
+                      <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
+                    </div>
+                    <div class="card-body">
+                      <p class="mb-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium.
+                      </p>
+                    </div>
+                  </div>
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar"
+                    class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
+                </li>
+                <li class="d-flex justify-content-between mb-4">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                    class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+                  <div class="card">
+                    <div class="card-header d-flex justify-content-between p-3">
+                      <p class="fw-bold mb-0">Brad Pitt</p>
+                      <p class="text-muted small mb-0"><i class="far fa-clock"></i> 10 mins ago</p>
+                    </div>
+                    <div class="card-body">
+                      <p class="mb-0">
+                        {{message}}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li class="bg-white mb-3">
+                  <form request="POST" action="">{% csrf_token %}
+                  <div class="form-outline">
+                    <textarea class="form-control" name="message" id="message" rows="4"></textarea>
+                    <label class="form-label" for="textAreaExample2">Message</label>
+                  </div>
+               
+                </li>
+                <button type="submit" class="btn btn-info btn-rounded float-end">Send</button>
+              </ul>
+      
+            </div>
+          
+          </div>
+      
+        </div>
+      </form>
+      </section>
+<script type="text/javascript">
+    $(document).on('submit','#post-form',function(e){
+      e.preventDefault();
+  
+      $.ajax({
+        type:'POST',
+        url:'/send',
+        data:{
+            username:$('#username').val(),
+            room_id:$('#room_id').val(),
+            message:$('#message').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success: function(data){
+           //alert(data)
+        }
+      });
+      document.getElementById('message').value = ''
+    });
+  </script>
+{% endblock body %}
+
+
+{%for p in post%}
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{p.username}}</h5>
+          <p class="card-text">{{p.caption}}</p>
+          <p class="card-text"><small class="text-muted">{{p.date}}</small></p>
+        {% load static %}
+        </div>
+        <img src="/media/{{p.image}}" class="card-img-bottom" alt="...">
+      </div>
+    {% endfor %}

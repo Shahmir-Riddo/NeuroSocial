@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+}
+body{
+    background-color: #f9f9f9;
+}
+.wrapper{
+    width: 380px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+.toast{
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1.3fr 6fr 0.5fr;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+.success{
+    border-left: 3px solid #47D764;
+}
+.error{
+    border-left: 3px solid #ff355b;
+}
+.info{
+    border-left: 3px solid #2F86EB;
+}
+.warning{
+    border-left: 3px solid #FFC021;
+}
+.error i{
+    color: #ff355b;
+}
+.info i{
+    color: #2F86EB;
+}
+.warning i{
+    color: #FFC021;
+}
+.toast:not(:last-child){
+    margin-bottom: 20px;
+}
+.outer-container,.inner-container{
+    align-self: center;
+} 
+.outer-container i{
+    font-size: 35px;
+}
+.success i{ 
+    color: #47D764;
+}
+.inner-container p:first-child{
+    color: #101020;
+    font-weight: 600;
+    font-size: 16px;
+}
+.inner-container p:last-child{
+    font-size: 12px;
+    font-weight: 400;
+    color: #656565;
+}
+.toast button{
+    align-self: flex-start;
+    background-color: transparent;
+    font-size: 20px;
+    color: #656565;
+    line-height: 0;
+    cursor: pointer;
+    margin-right:-30px;
+}
+    </style>
+<body>
+    <div class="wrapper">
+        {% if messages == success %}
+        {% for m in messages %}
+    <div class="toast success">
+        <div class="outer-container">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="inner-container">
+            <p>Success</p>
+            <p>{{m}}</p>
+        </div>
+        <button>&times;</button>
+    </div>
+    {% endif %}
+    {% endfor %}
+    <div class="toast error">
+        <div class="outer-container">
+            <i class="fas fa-times-circle"></i>
+        </div>
+        <div class="inner-container">
+            <p>Error</p>
+            <p>Error has occured while saving changes.</p>
+        </div>
+        <button>&times;</button>
+    </div>
+    <div class="toast info">
+        <div class="outer-container">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="inner-container">
+            <p>Info</p>
+            <p>New settings available on your account.</p>
+        </div>
+        <button>&times;</button>
+    </div>
+    <div class="toast warning">
+        <div class="outer-container">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="inner-container">
+            <p>Warning</p>
+            <p>Username you have entered is invalid.</p>
+        </div>
+        <button>&times;</button>
+    </div>
+</div>
+</body>
+</html>
