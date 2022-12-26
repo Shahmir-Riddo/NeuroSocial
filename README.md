@@ -5,8 +5,13 @@ Neurosocial is a simple photo and info sharing app made with django. With Neuros
 
 Features :
 • Search for Friends: Easily search for friends and follow them, making it easy to stay connected.
+
 • Customizable Settings: Customize settings and preferences to tailor Neurosocial to each user’s needs.
+
 • Share Photos and Information: Post photos and share information with friends and followers.
-• Activity Feed: View a feed of recent activity from friends, allowing users to stay up to date.![Screenshot (83)](https://user-images.githubusercontent.com/78295593/209572467-da21ca17-6a79-4077-ba5a-daeff58c8034.png)
+
+• Activity Feed: View a feed of recent activity from friends, allowing users to stay up to date.
+
+![Screenshot (83)](https://user-images.githubusercontent.com/78295593/209572467-da21ca17-6a79-4077-ba5a-daeff58c8034.png)
 ![Screenshot (84)](https://user-images.githubusercontent.com/78295593/209572474-ac583f3a-65cd-4d5d-8325-ae270f40ddf8.png)
 ![Screenshot (85)](https://user-images.githubusercontent.com/78295593/209572480-ccaa5e14-c929-4245-9ac6-43cd2bbdcb52.png)
