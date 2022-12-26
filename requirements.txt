@@ -5,3 +5,4 @@ psycopg2==2.8.6
 sqlparse==0.4.2
 Pillow==9.2.0
 uuid==1.30
+whitenoise==6.2.0
